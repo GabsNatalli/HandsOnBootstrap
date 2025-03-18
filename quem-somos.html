@@ -40,6 +40,8 @@
         }
         .card {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-color: #fffbea; /* Amarelo bem clarinho */
+            height: 100%; /* Garante que os cards tenham o mesmo tamanho */
         }
         .card:hover {
             transform: scale(1.05);
@@ -55,7 +57,10 @@
             .then(html => {
                 const parser = new DOMParser();
                 const doc = parser.parseFromString(html, 'text/html');
-                document.body.insertAdjacentElement('afterbegin', doc.querySelector('#navbar'));
+                const navbar = doc.querySelector('#navbar');
+                navbar.querySelector('.navbar-brand').innerHTML = 'Queijinhos';
+                navbar.querySelector('.navbar-collapse').classList.add('justify-content-end');
+                document.body.insertAdjacentElement('afterbegin', navbar);
                 document.body.insertAdjacentElement('beforeend', doc.querySelector('#footer'));
             });
     </script>
@@ -63,24 +68,24 @@
     <main class="container mt-5 pt-5">
         <h1 class="text-center mb-4">Quem Somos</h1>
         <div class="row justify-content-center">
-            <div class="col-md-4 col-sm-6 mb-4">
-                <div class="card text-center">
+            <div class="col-md-4 col-sm-6 mb-4 d-flex">
+                <div class="card text-center p-4 w-100">
                     <div class="card-body">
                         <h5 class="card-title">Nossa História</h5>
                         <p class="card-text">Desde 1990, a Queijinhos se dedica a produzir queijos artesanais com qualidade e tradição.</p>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 col-sm-6 mb-4">
-                <div class="card text-center">
+            <div class="col-md-4 col-sm-6 mb-4 d-flex">
+                <div class="card text-center p-4 w-100">
                     <div class="card-body">
                         <h5 class="card-title">Nossa Missão</h5>
                         <p class="card-text">Levar o melhor sabor dos queijos artesanais para a mesa de nossos clientes.</p>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 col-sm-6 mb-4">
-                <div class="card text-center">
+            <div class="col-md-4 col-sm-6 mb-4 d-flex">
+                <div class="card text-center p-4 w-100">
                     <div class="card-body">
                         <h5 class="card-title">Por que nos escolher?</h5>
                         <p class="card-text">Oferecemos produtos frescos, atendimento personalizado e valorizamos os produtores locais.</p>

@@ -48,7 +48,10 @@
             .then(html => {
                 const parser = new DOMParser();
                 const doc = parser.parseFromString(html, 'text/html');
-                document.body.insertAdjacentElement('afterbegin', doc.querySelector('#navbar'));
+                const navbar = doc.querySelector('#navbar');
+                navbar.querySelector('.navbar-brand').innerHTML = 'Queijinhos';
+                navbar.querySelector('.navbar-collapse').classList.add('justify-content-end');
+                document.body.insertAdjacentElement('afterbegin', navbar);
                 document.body.insertAdjacentElement('beforeend', doc.querySelector('#footer'));
             });
     </script>
